@@ -181,7 +181,7 @@ public class Room {
      * @param NPC being added to the room
      */
     void addNPC(NPC npc){
-        npcs.add(npc)
+        npcs.add(npc);
     }
     
     /**
@@ -190,7 +190,7 @@ public class Room {
      * @param NPC being removed from the the room
      */
     void removeNPC(NPC npc){
-        npcs.remove(npc)
+        npcs.remove(npc);
     }
  
     Item getItemNamed(String name) throws Item.NoItemException {
