@@ -17,7 +17,8 @@ public class Room {
     private boolean beenHere;
     private ArrayList<Item> contents;
     private ArrayList<Exit> exits;
-
+    private ArrayList<NPC> npcs;
+ 
     Room(String title) {
         init();
         this.title = title;
@@ -174,6 +175,24 @@ public class Room {
         contents.remove(item);
     }
 
+     /**
+     * adds the specfied NPC to the room
+     * 
+     * @param NPC being added to the room
+     */
+    void addNPC(NPC npc){
+        npcs.add(npc)
+    }
+    
+    /**
+     * removes the specifed NPC from the room
+     * 
+     * @param NPC being removed from the the room
+     */
+    void removeNPC(NPC npc){
+        npcs.remove(npc)
+    }
+ 
     Item getItemNamed(String name) throws Item.NoItemException {
         for (Item item : contents) {
             if (item.goesBy(name)) {
