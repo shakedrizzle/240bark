@@ -33,6 +33,7 @@ public class Dungeon {
     private Room entry;
     private Hashtable<String,Room> rooms;
     private Hashtable<String,Item> items;
+    private Hashtable<String,NPC> NPCs;
     private String filename;
 
     Dungeon(String name, Room entry) {
@@ -167,9 +168,23 @@ public class Dungeon {
     public void add(Room room) { rooms.put(room.getTitle(),room); }
     public void add(Item item) { items.put(item.getPrimaryName(),item); }
 
+    /**
+	    * method adds an NPC to the room
+	    * 
+	    * @param  npc  the npc object being added to the room
+	    */
+   	public void add(NPC npc){}
+ 
     public Room getRoom(String roomTitle) {
         return rooms.get(roomTitle);
     }
+ 
+    /**
+	    * method gets the specific NPC in the room
+    	* 
+    	*@param  name  of the NPC that is being retrieved
+    	*/
+   	public NPC getNPC(String name){}
 
     /**
      * Get the Item object whose primary name is passed. This has nothing to
