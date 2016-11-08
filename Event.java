@@ -10,5 +10,5 @@ abstract class Event
     /**
      * An abstract method that executes what an event is suppose to do
      */
-    abstract void execute();
+    abstract String execute();
 }
