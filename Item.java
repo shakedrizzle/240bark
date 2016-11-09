@@ -11,6 +11,7 @@ public class Item {
     private String primaryName;
     private int weight;
     private Hashtable<String,String> messages;
+    private boolean howToSwim;
 
 
     Item(Scanner s) throws NoItemException,
@@ -55,4 +56,11 @@ public class Item {
     public String toString() {
         return primaryName;
     }
+    
+    /**
+     * Tells whether the user has swim object or not
+     * 
+     * @return true or false depending on whether item is in inventory
+     */
+    public boolean hasSwimObj(){}
 }

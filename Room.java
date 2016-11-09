@@ -18,6 +18,7 @@ public class Room {
     private ArrayList<Item> contents;
     private ArrayList<Exit> exits;
     private ArrayList<NPC> npcs;
+    private boolean hasWater;
  
     Room(String title) {
         init();
@@ -205,4 +206,25 @@ public class Room {
     ArrayList<Item> getContents() {
         return contents;
     }
+    
+    /**
+     * Gets how much food points in room
+     * 
+     * @return how much food is in room
+     */
+    int getFoodPoints(){return 0;}
+    
+    /**
+     * Takes a certain amount of food points from room
+     * 
+     * @return how much food is taken from room
+     */
+    int takeFood(){return 0;}
+    
+    /**
+     * Says whether or not room has the final boss
+     * 
+     * @return true or false if final boss is in room
+     */
+    boolean hasFinalBoss(){return false;}
 }

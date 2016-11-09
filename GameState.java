@@ -29,6 +29,7 @@ public class GameState {
     private Dungeon dungeon;
     private ArrayList<Item> inventory;
     private Room adventurersCurrentRoom;
+    private boolean hasHunger;
 
     static synchronized GameState instance() {
         if (theInstance == null) {
@@ -163,5 +164,19 @@ public class GameState {
     Dungeon getDungeon() {
         return dungeon;
     }
+    
+    /**
+     * Gets the current hunger points of adventurer
+     * 
+     * @return hunger points of user
+     */
+    int getHunger(){return 0;}
+    
+    /**
+     * Sets the current hunger points of adventurer
+     * 
+     * @param h what hunger points is being set to 
+     */
+    void setHunger(int h){}
 
 }
