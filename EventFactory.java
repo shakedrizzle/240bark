@@ -22,7 +22,7 @@ public class EventFactory
     }
 
     /**
-     * this method looks for specific queues and calls the events that get queued
+     * this method looks for specific cues and calls the events that get cued
      * this is the method that "throws the bone" if you will, to the other Event classes
      * 
      * @param event & name for the specific Event
