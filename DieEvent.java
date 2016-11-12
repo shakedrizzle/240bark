@@ -7,7 +7,7 @@
  */
 public class DieEvent extends Event
 {
-    private boolean death;
+    
     
     /**
      * Constructor for objects of class DieEvent
@@ -17,6 +17,8 @@ public class DieEvent extends Event
     /**
      * Kills player and ends game
      */
-    void execute(){}
+    void execute(){
+     GameState.instance().setHealth(0);
+    }
 
 }
