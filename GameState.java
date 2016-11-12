@@ -178,5 +178,17 @@ public class GameState {
      * @param h what hunger points is being set to 
      */
     void setHunger(int h){}
+    
+    int getHealth(){
+        return health;
+    }
+    
+    void setHealth(int num){
+        health = num;
+    }
+    
+    void fixHealth(int num){
+        health=health-num;
+    }
 
 }
