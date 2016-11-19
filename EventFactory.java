@@ -28,5 +28,9 @@ public class EventFactory
      * @param event & name for the specific Event
      * @return the Event that is called
      */
-    private Event parse(String event, Item name){}
+    private Event parse(String event, Item name){
+        if(event.contains("Die")){
+			return new DieEvent();
+		}
+    }
 }
