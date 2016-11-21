@@ -17,8 +17,9 @@ public class DieEvent extends Event
     /**
      * Kills player and ends game
      */
-    void execute(){
+    String execute(){
      GameState.instance().setHealth(0);
+     return " You are died :("
     }
 
 }
