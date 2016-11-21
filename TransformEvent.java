@@ -8,15 +8,20 @@
 public class TransformEvent extends Event
 {
    String newItem;
-   Item item;
+   String item;
    /**
     * Constructor for objects of class TransformEvent
     */
-   TransformEvent(Item aname, String bname){}
+   TransformEvent(String newitem, String item){
+   this.item = item;
+   this.newItem = newItem;
+   }
    
-   /**
-    * Removes an item from the dungeon and replaces it with a new item. 
-    * On cases where there is no item in the room, nothing should be transformed or returned.
-    */
-   void execute(){}
+   
+   void execute(){
+      GameState.instance().addToInventory(GameState.instance().getDungeon().getItem(newItem));
+      return EventFactory.instance().parse("Disappear("+originalItem+")").execute();
+   
+   
+   }
 }
