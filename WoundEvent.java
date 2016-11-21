@@ -17,5 +17,7 @@ public class WoundEvent extends Event
     /**
      * Takes away a given amount of health points from player.
      */
-    void execute(){}
+    void execute(){
+     GameState.instance().setHealth(GameState.instance().getHealth()-woundAmount);
+    }
 }
