@@ -12,7 +12,9 @@ public class WoundEvent extends Event
     /**
      * Constructor for objects of class WoundEvent
      */
-    public WoundEvent(int woundAmount){}
+    public WoundEvent(int woundAmount){
+    this.woundAmount = woundAmount;
+    }
 
     /**
      * Takes away a given amount of health points from player.
