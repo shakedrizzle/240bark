@@ -32,5 +32,9 @@ public class EventFactory
         if(event.contains("Die")){
 			return new DieEvent();
 		}
+	else if(event.contains("Disappear")){
+			return new TransformEvent();
     }
+    }
+	    
 }
