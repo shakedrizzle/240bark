@@ -30,6 +30,7 @@ public class GameState {
     private ArrayList<Item> inventory;
     private Room adventurersCurrentRoom;
     private boolean hasHunger;
+    private int health = 100;
 
     static synchronized GameState instance() {
         if (theInstance == null) {
