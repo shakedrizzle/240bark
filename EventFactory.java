@@ -33,7 +33,7 @@ public class EventFactory
 			return new DieEvent();
 		}
 	else if(event.contains("Disappear")){
-			return new TransformEvent();
+			return new DisappearEvent();
     }
     }
 	    
