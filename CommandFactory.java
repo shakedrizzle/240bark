@@ -42,10 +42,12 @@ public class CommandFactory {
         if (MOVEMENT_COMMANDS.contains(verb)) {
             return new MovementCommand(verb);
         }
-       if (parts.length == 2) {
-            return new ItemSpecificCommand(verb, noun);
-       }
-     
+      if (parts.length == 2) {
+            if (verb.equals("teleport")){
+                return new TeleportCommand(noun);}
+                else{
+            return new ItemSpecificCommand(verb, noun);}
+        }
         if(verb.equals("h") || verb.equals("health")){
             return new HealthCommand();
         }
