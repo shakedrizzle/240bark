@@ -34,6 +34,8 @@ public class EventFactory
 		}
 	else if(event.contains("Disappear")){
 			return new DisappearEvent();
+	else if(event.contains("Win")){
+			return new WinEvent();
     }
     }
 	    
