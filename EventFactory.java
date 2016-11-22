@@ -8,13 +8,13 @@ import java.util.*;
  */
 public class EventFactory
 {
-    private static EventFactory theInstance;
+    public static EventFactory theInstance;
     /**
-     * method that creats an EventFactory if none exists  
+     * method that creates an EventFactory if none exists  
      * 
      * @return  EventFactory  whether it be a new factory or a new one
      */
-    private static synchronized EventFactory instance(){
+    public static synchronized EventFactory instance(){
         if (theInstance == null) {
             theInstance = new EventFactory();
         }
@@ -28,15 +28,14 @@ public class EventFactory
      * @param event & name for the specific Event
      * @return the Event that is called
      */
-    private Event parse(String event, Item name){
-        if(event.contains("Die")){
+    public Event parse(String event, Item name){
+        if(event.contains("Die"))
 			return new DieEvent();
-		}
-	else if(event.contains("Disappear")){
+	else if(event.contains("Disappear"))
 			return new DisappearEvent();
-	else if(event.contains("Win")){
+	else if(event.contains("Win"))
 			return new WinEvent();
-    }
+    return null;
     }
 	    
 }

@@ -8,19 +8,25 @@
 public class TransformEvent extends Event
 {
    String newItem;
-   String item;
+   Item item;
    /**
     * Constructor for objects of class TransformEvent
     */
-   TransformEvent(String newitem, String item){
+   TransformEvent(String newitem, Item item){
    this.item = item;
    this.newItem = newItem;
    }
    
    
    void execute(){
+      try { 
       GameState.instance().addToInventory(GameState.instance().getDungeon().getItem(newItem));
-      return EventFactory.instance().parse("Disappear("+originalItem+")").execute();
+      EventFactory.instance().parse("Disappear "+item.getPrimaryName(),item).execute();
+      
+      }
+      catch (Item.NoItemException e) {
+          
+      }
    
    
    }
