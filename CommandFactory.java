@@ -27,6 +27,9 @@ public class CommandFactory {
         if (verb.equals("save")) {
             return new SaveCommand(noun);
         }
+        if (verb.equals("s") || verb.equals("score")) {
+            return new ScoreCommand();
+        }
         if (verb.equals("take")) {
             return new TakeCommand(noun);
         }
@@ -39,10 +42,13 @@ public class CommandFactory {
         if (MOVEMENT_COMMANDS.contains(verb)) {
             return new MovementCommand(verb);
         }
-        if (parts.length == 2) {
-            return new ItemSpecificCommand(verb, noun);
+       if (parts.length == 2) {
+            if (verb.equals("teleport")){
+                return new TeleportCommand(room);}
+                else{
+            return new ItemSpecificCommand(verb, noun);}
         }
-        if(verb.equals("health")){
+        if(verb.equals("h") || verb.equals("health")){
             return new HealthCommand();
         }
         return new UnknownCommand(command);
