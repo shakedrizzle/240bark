@@ -17,5 +17,16 @@ public class WinEvent extends Event
     /**
      * If the final boss is defeated, the player wins the game.
      */
-    void execite(){}
+   String execute(){
+     System.out.println("You find yourself victorious.  you have the sudden urge to howl");
+     System.out.println("you give into your instincts and howl, all of a sudden you feel it");
+     System.out.println("your bones cracking and changing under your skin, you fall to the ground");
+     System.out.println("you try to stand, but you realize you can no longer stand on two feet");
+     System.out.println("you look around your vision is blurred, everything that you knew has changed");
+     System.out.println("everything, looks, smells, tastes, and now even feels different.");
+     System.out.println("your eyes start to focus as you look at your hands in disbelief");
+     System.out.println("...they are not hands ... they are paws");
+     GameState.instance().getScore();
+     return "bork, bork, bark";
+   }
 }
