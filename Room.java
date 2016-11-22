@@ -141,6 +141,8 @@ public class Room {
             description = title;
         } else {
             description = title + "\n" + desc;
+            GameState.instance().addScore(10);
+            //+ score by entering new rooms for now since we don't have NPC's yet
         }
         for (Item item : contents) {
             description += "\nThere is a " + item.getPrimaryName() + " here.";
