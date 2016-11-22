@@ -31,7 +31,8 @@ public class GameState {
     private Room adventurersCurrentRoom;
     private boolean hasHunger;
     private int health = 100;
-
+    private int score;
+ 
     static synchronized GameState instance() {
         if (theInstance == null) {
             theInstance = new GameState();
@@ -119,6 +120,9 @@ public class GameState {
 
     void addToInventory(Item item) /* throws TooHeavyException */ {
         inventory.add(item);
+    /* for future
+    if (item.hasTele() ==true){
+            canTele = true;}  */
     }
 
     void removeFromInventory(Item item) {
@@ -165,7 +169,22 @@ public class GameState {
     Dungeon getDungeon() {
         return dungeon;
     }
-    
+ 
+    /*again for our future teleport mechanic
+    boolean setTele(){
+        if(this.instance()== null){
+            canTele = false;
+        }
+        else{
+            canTele = canTele;
+        }
+        return canTele;
+    }
+
+    boolean getTele(){
+        return canTele;
+    } */
+ 
     /**
      * Gets the current hunger points of adventurer
      * 
@@ -190,6 +209,12 @@ public class GameState {
     
     void fixHealth(int num){
         health=health-num;
+    }
+    void addScore(int num){
+        score += num;
+    }
+    int getScore(){
+        return score;
     }
 
 }
