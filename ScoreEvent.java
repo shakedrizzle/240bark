@@ -5,7 +5,7 @@ import java.util.*;
  * @author Rose Connolly
  * @version 1.1
  */
-public class ScoreEvent
+public class ScoreEvent extends Event
 {
     private int num;
     /**
