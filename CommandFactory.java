@@ -43,11 +43,9 @@ public class CommandFactory {
             return new MovementCommand(verb);
         }
        if (parts.length == 2) {
-            if (verb.equals("teleport")){
-                return new TeleportCommand(room);}
-                else{
-            return new ItemSpecificCommand(verb, noun);}
-        }
+            return new ItemSpecificCommand(verb, noun);
+       }
+     
         if(verb.equals("h") || verb.equals("health")){
             return new HealthCommand();
         }
