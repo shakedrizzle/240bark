@@ -29,13 +29,11 @@ public class EventFactory
      * @return the Event that is called
      */
     public Event parse(String event, Item name){
-        if(event.contains("Die"))
-			return new DieEvent();
-	else if(event.contains("Disappear"))
-			return new DisappearEvent();
-	else if(event.contains("Win"))
-			return new WinEvent();
-    return null;
+        if(event.contains("Die")){return new DieEvent();}
+        if(event.contains("Disappear")){return new DisappearEvent();}
+        if(event.contains("Win")){return new WinEvent();}
+        if(event.contains("Score")){return new ScoreEvent(num);}
+        return new UnknownEvent();
     }
 	    
 }
