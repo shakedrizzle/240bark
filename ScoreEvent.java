@@ -3,11 +3,11 @@ import java.util.*;
  * ScoreEvent keeps track of and adds to the player's score
  *
  * @author Rose Connolly
- * @version 1.0
+ * @version 1.1
  */
 public class ScoreEvent
 {
-    private int scoreNum;
+    private int num;
     /**
      * Constructor for objects of class ScoreEvent
      * 
@@ -15,7 +15,8 @@ public class ScoreEvent
      */
     public ScoreEvent(int num) //this num needs to be sent in via a scanner somewhere
     {
-        scoreNum += num;
+        this.num = num;
+        GameState.instance().addScore(num);
     }
 
     /**
@@ -23,5 +24,6 @@ public class ScoreEvent
      * 
      * @return the current score in a string
      */
-    String execute(){return "Score:  " + scoreNum;}
+    String execute(){return ("You earned: " + num + "Current Score: " + GameState.instance().getScore());
+    }
 }
