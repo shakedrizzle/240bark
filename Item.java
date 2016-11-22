@@ -12,7 +12,7 @@ public class Item {
     private int weight;
     private Hashtable<String,String> messages;
     private boolean howToSwim;
-
+    private boolean canTele;
 
     Item(Scanner s) throws NoItemException,
         Dungeon.IllegalDungeonFormatException {
@@ -27,7 +27,20 @@ public class Item {
 
         // Read item weight.
         weight = Integer.valueOf(s.nextLine());
-
+        
+         //our file accounts for below on google drive
+         // it's in comments for Zeitz's bork file (for now)
+        //read swim bool
+        /*String swim = s.nextLine();
+        if(swim.equals("true")){
+            howToSwim = true;}
+        else {howToSwim = false;}
+        //read tele bool
+        String tele= s.nextLine();
+        if(tele.equals("true")){
+            canTele = true;}
+        else {canTele = false;} */
+         
         // Read and parse verbs lines, as long as there are more.
         String verbLine = s.nextLine();
         while (!verbLine.equals(Dungeon.SECOND_LEVEL_DELIM)) {
@@ -41,6 +54,13 @@ public class Item {
             verbLine = s.nextLine();
         }
     }
+     /**
+     * Tells whether the user has swim object or not
+     * 
+     * @return true or false depending on whether item is in inventory
+     */
+    boolean hasSwimObj(){return howToSwim;}
+    boolean hasTele(){return canTele;}
 
     boolean goesBy(String name) {
         // could have other aliases
@@ -56,11 +76,4 @@ public class Item {
     public String toString() {
         return primaryName;
     }
-    
-    /**
-     * Tells whether the user has swim object or not
-     * 
-     * @return true or false depending on whether item is in inventory
-     */
-    public boolean hasSwimObj(){}
 }
