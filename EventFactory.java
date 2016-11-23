@@ -36,18 +36,18 @@ public class EventFactory
             String Everbs = events.get(event);
             String[] Enouns = Everbs.split(",");
             for(String word:Enouns){
-                int firstbananna = word.indexOf("(");
-                int lastbananna = word.indexOf(")");
+                int firstbanana = word.indexOf("(");
+                int lastbanana = word.indexOf(")");
 		 if(word.contains("(")){
-                    first = word.substring(0,firstbananna);
+                    first = word.substring(0,firstbanana);
                 }else
                 first=word;
 	    
         if(event.contains("Die")){return new DieEvent();}
         if(event.contains("Disappear")){return new DisappearEvent();}
         if(event.contains("Win")){return new WinEvent();}
-        if(event.contains("Score")){return new ScoreEvent(Integer.valueOf(word.substring(firstbananna,lastbananna)));}
-	if(event.contains("Wound")){return new WoundEvent(Integer.valueOf(word.substring(firstbananna,lastbananna)));}
+        if(event.contains("Score")){return new ScoreEvent(Integer.valueOf(word.substring(firstbanana,lastbanana)));}
+	if(event.contains("Wound")){return new WoundEvent(Integer.valueOf(word.substring(firstbanana,lastbanana)));}
 	    }
 	}
         return new UnknownEvent();
