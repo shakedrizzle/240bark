@@ -179,11 +179,11 @@ public class GameState {
             canTele = canTele;
         }
         return canTele;
-    }
+    } */
 
     boolean getTele(){
         return canTele;
-    } */
+    } 
  
     /**
      * Gets the current hunger points of adventurer
