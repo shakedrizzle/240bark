@@ -178,6 +178,10 @@ public class Dungeon {
     public Room getRoom(String roomTitle) {
         return rooms.get(roomTitle);
     }
+	public Hashtable getHashtable(){
+       Hashtable<String,Room> roomies = rooms;
+       return roomies;
+    }
  
     /**
 	    * method gets the specific NPC in the room
