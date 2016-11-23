@@ -215,6 +215,7 @@ public class GameState {
         score += num;
     }
     int getScore(){
+        System.out.println("Current Score: " + score);
         return score;
     }
 
