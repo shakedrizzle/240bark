@@ -8,7 +8,7 @@
  */
 public class UnknownEvent extends Event
 {
-    String execute() {
-        return "Bork \n";
+    void execute() {
+        System.out.print( "Bork");
     }
 }
