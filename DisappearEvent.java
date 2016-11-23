@@ -23,10 +23,10 @@ public class DisappearEvent extends Event
     Item item = GameState.instance().getItemInVicinityNamed(disItem);
     if (GameState.instance().getItemFromInventoryNamed(disItem) != null) {
         GameState.instance().removeFromInventory(item);
-        
+        return disItem + "has disappeared.";
         }
     else {
-        System.out.println("You have no item to get rid of.");
+        return "You have no item to get rid of.";
         
     }
     }
