@@ -30,7 +30,7 @@ public class GameState {
     private ArrayList<Item> inventory;
     private Room adventurersCurrentRoom;
     private boolean hasHunger;
-    private boolean canTele;
+    private boolean canTele = true;
     private int health = 100;
     private int score;
  
