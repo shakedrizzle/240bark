@@ -24,7 +24,7 @@ public class ScoreEvent extends Event
      * 
      * @return the current score in a string
      */
-    void execute(){
-    System.out.print("You earned: " + num + "Current Score: " + GameState.instance().getScore());
+    String execute(){
+    return "You earned: " + num + "Current Score: " + GameState.instance().getScore());
     }
 }
