@@ -19,7 +19,7 @@ public class DieEvent extends Event
      */
     String execute(){
      GameState.instance().setHealth(0);
-     return "You have died, you have barked your last bark."
+     return "You have died, you have barked your last bark.";
     }
 
 }
