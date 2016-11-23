@@ -6,59 +6,41 @@ import java.util.Scanner;
 
 public class Interpreter {
 
-    private static GameState state; // not strictly necessary; GameState is 
-                                    // singleton
-
-    public static String USAGE_MSG = 
-        "Usage: Interpreter borkFile.bork|saveFile.sav.";
-
+   private static GameState state; 
+    public static String USAGE_MSG = "Usage: Interpreter borkFile.bork|saveFile.sav.";
     public static void main(String args[]) {
-
-        if (args.length < 1) {
-            System.err.println(USAGE_MSG);
-            System.exit(1);
-        }
-
         String command;
         Scanner commandLine = new Scanner(System.in);
-
+        System.out.println("insert .bork or .sav file:");
+        command=commandLine.next();
         try {
             state = GameState.instance();
-            if (args[0].endsWith(".bork")) {
-                state.initialize(new Dungeon(args[0]));
+            if (command.endsWith(".bork")) {
+                state.initialize(new Dungeon(command,true));
                 System.out.println("\nWelcome to " + 
                     state.getDungeon().getName() + "!");
-            } else if (args[0].endsWith(".sav")) {
-                state.restore(args[0]);
+            } else if (command.endsWith(".sav")) {
+                state.restore(command);
                 System.out.println("\nWelcome back to " + 
                     state.getDungeon().getName() + "!");
             } else {
                 System.err.println(USAGE_MSG);
                 System.exit(2);
             }
-
-            System.out.print("\n" + 
-                state.getAdventurersCurrentRoom().describe() + "\n");
-
+            System.out.print("\n" + state.getAdventurersCurrentRoom().describe() + "\n");
             command = promptUser(commandLine);
-
+            command = promptUser(commandLine);
             while (!command.equals("q")) {
-
-                System.out.print(
-                    CommandFactory.instance().parse(command).execute());
-
+                System.out.print(CommandFactory.instance().parse(command).execute());
                 command = promptUser(commandLine);
             }
-
             System.out.println("Bye!");
-
         } catch(Exception e) { 
             e.printStackTrace(); 
         }
     }
 
     private static String promptUser(Scanner commandLine) {
-
         System.out.print("> ");
         return commandLine.nextLine();
     }
