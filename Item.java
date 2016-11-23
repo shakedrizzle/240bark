@@ -13,11 +13,13 @@ public class Item {
     private Hashtable<String,String> messages;
     private boolean howToSwim;
     private boolean canTele;
+    private Hashtable<String,String> events;
 
     Item(Scanner s) throws NoItemException,
         Dungeon.IllegalDungeonFormatException {
 
         messages = new Hashtable<String,String>();
+        events = new Hashtable<String,String>();
 
         // Read item name.
         primaryName = s.nextLine();
@@ -49,6 +51,14 @@ public class Item {
                     Dungeon.SECOND_LEVEL_DELIM + "' after item.");
             }
             String[] verbParts = verbLine.split(":");
+            String event = verbParts[0];
+            if (event.endsWith("]")){
+                int lastBrac = event.indexOf("[");
+                verbParts[0] = event.substring(0,lastBrac);
+                String parseWord = event.substring(0,lastBrac);
+                event = event.substring(lastBrac+1,event.indexOf("]"));
+                events.put(parseWord,event);
+            }
             messages.put(verbParts[0],verbParts[1]);
             
             verbLine = s.nextLine();
