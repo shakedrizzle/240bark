@@ -188,7 +188,7 @@ public class Dungeon {
     	* 
     	*@param  name  of the NPC that is being retrieved
     	*/
-   	public NPC getNPC(String name){}
+   	//public NPC getNPC(String name){}  this method will be implemented in the future
 
     /**
      * Get the Item object whose primary name is passed. This has nothing to
