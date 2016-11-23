@@ -17,5 +17,5 @@ public class TeleportEvent extends Event
     /**
      * Changes the current room to another room.
      */
-    void execute(){}
+    String execute(){}
 }
