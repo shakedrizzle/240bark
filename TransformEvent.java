@@ -18,7 +18,7 @@ public class TransformEvent extends Event
    }
    
    
-   void execute(){
+  String execute(){
       try { 
       GameState.instance().addToInventory(GameState.instance().getDungeon().getItem(newItem));
       EventFactory.instance().parse("Disappear "+item.getPrimaryName(),item).execute();
