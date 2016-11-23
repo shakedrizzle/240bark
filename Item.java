@@ -82,7 +82,11 @@ public class Item {
     public String getMessageForVerb(String verb) {
         return messages.get(verb);
     }
-
+ 
+    public Hashtable getEventCommands(){
+        return events;
+    }
+ 
     public String toString() {
         return primaryName;
     }
