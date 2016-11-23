@@ -22,10 +22,10 @@ public class TransformEvent extends Event
       try { 
       GameState.instance().addToInventory(GameState.instance().getDungeon().getItem(newItem));
       EventFactory.instance().parse("Disappear "+item.getPrimaryName(),item).execute();
-      
+      return item + "has trasformed into: " + newItem;
       }
       catch (Item.NoItemException e) {
-          
+          return "you could not find it in yourself to perform this action";   
       }
    
    
