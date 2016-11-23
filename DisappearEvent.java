@@ -30,7 +30,7 @@ public class DisappearEvent extends Event
         
     }
     }
-    catch (Item.NoItemException e) {}
+    catch (Item.NoItemException e) {return "you felt as if something was going change, but nothing did";}
     }
     
 }
