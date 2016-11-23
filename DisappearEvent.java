@@ -18,7 +18,7 @@ public class DisappearEvent extends Event
     /**
      * Gets rid of an item in the the dungeon completely, in cases where there is no item, no item will dissappear
      */
-    void execute(){
+    String execute(){
     try {
     Item item = GameState.instance().getItemInVicinityNamed(disItem);
     if (GameState.instance().getItemFromInventoryNamed(disItem) != null) {
