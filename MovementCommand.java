@@ -15,6 +15,7 @@ class MovementCommand extends Command {
         Room nextRoom = currentRoom.leaveBy(dir);
         if (nextRoom != null) {  // could try/catch here.
             GameState.instance().setAdventurersCurrentRoom(nextRoom);
+             GameState.instance().setHealth(GameState.instance().getHealth()-5);
             return "\n" + nextRoom.describe() + "\n";
         } else {
             return "You can't go " + dir + ".\n";
