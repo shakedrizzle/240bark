@@ -5,14 +5,20 @@
  * @version 11/8/2016
  */
 public class CombatCommand extends Command{
+    int attack;
+    String target;
 
     /**
      * Creates a combat instance
      * 
-     * @param a what move from user is
-     * @param b who is being affected
+     * @param attack what move from user is
+     * @param target who is being affected
      */
-    CombatCommand(String a, String b){}
+    CombatCommand(int attack, String target){
+        this.attack = attack;
+        this.target = target;
+    
+    }
     
     /**
      * Prints to the user what happened in combat

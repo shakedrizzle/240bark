@@ -24,10 +24,13 @@ public class GameState {
     static String ADVENTURER_MARKER = "Adventurer:";
     static String CURRENT_ROOM_LEADER = "Current room: ";
     static String INVENTORY_LEADER = "Inventory: ";
+    static String TOP_LEVEL_DELIM = "===";
+    static String SECOND_LEVEL_DELIM = "---";
 
     private static GameState theInstance;
     private Dungeon dungeon;
     private ArrayList<Item> inventory;
+    private ArrayList<String> NPCs;
     private Room adventurersCurrentRoom;
     private boolean hasHunger;
     private boolean canTele = true;
@@ -43,6 +46,7 @@ public class GameState {
 
     private GameState() {
         inventory = new ArrayList<Item>();
+        NPCs = new ArrayList<String>();
     }
 
     void restore(String filename) throws FileNotFoundException,
@@ -82,6 +86,7 @@ public class GameState {
                         itemName + "'");
                 }
             }
+          
         }
     }
 
