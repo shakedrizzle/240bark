@@ -33,7 +33,7 @@ public class Interpreter {
             while (!command.equals("q")) {
                 System.out.print(CommandFactory.instance().parse(command).execute());
                 command = promptUser(commandLine);
-             if(state.getAdventurersCurrentRoom()==(state.getDungeon().getEntry()))
+             if(state.getAdventurersCurrentRoom()==(state.getDungeon().getEntry()))//player drowns as soon as they move
                 try{
                     if(state.getItemFromInventoryNamed("floatDevice")==null ||
                     state.getItemFromInventoryNamed("lifeJacket")== null ||
