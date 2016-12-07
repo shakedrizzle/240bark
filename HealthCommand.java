@@ -32,7 +32,8 @@ public class HealthCommand extends Command{
             return("Adios amigo/amiga, you are dying!");
         }
         else{
-            return null;
-        } 
-    }
+             System.exit(0);
+            }
+        return null;
+    } 
 }
