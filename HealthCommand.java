@@ -31,7 +31,7 @@ public class HealthCommand extends Command{
         }else if(health>=0){
             return("Adios amigo/amiga, you are dying!");
         }
-        else{
+        else if (health<=0){
              System.exit(0);
             }
         return null;
