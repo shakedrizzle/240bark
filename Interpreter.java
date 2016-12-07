@@ -33,6 +33,19 @@ public class Interpreter {
             while (!command.equals("q")) {
                 System.out.print(CommandFactory.instance().parse(command).execute());
                 command = promptUser(commandLine);
+             if(state.getAdventurersCurrentRoom()==(state.getDungeon().getEntry()))
+                try{
+                    if(state.getItemFromInventoryNamed("floatDevice")==null ||
+                    state.getItemFromInventoryNamed("lifeJacket")== null ||
+                    state.getItemFromInventoryNamed("goggles")== null) {
+                       
+                    }
+                }catch (Item.NoItemException e){
+                    System.out.print("YOU JUST SADLY DROWNED :( ");
+                    String q = "q";
+                    command= q;
+                }
+                    
             }
             System.out.println("Bye!");
         } catch(Exception e) { 
