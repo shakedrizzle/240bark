@@ -11,13 +11,13 @@ public class Room {
     class NoRoomException extends Exception {}
 
     static String CONTENTS_STARTER = "Contents: ";
-
+    static String NPCLINE = "NPCs: ";
     private String title;
     private String desc;
     private boolean beenHere;
     private ArrayList<Item> contents;
     private ArrayList<Exit> exits;
-    private ArrayList<NPC> npcs;
+    private NPC npc;
     private boolean hasWater;
  
     Room(String title) {
@@ -54,8 +54,7 @@ public class Room {
         
         String lineOfDesc = s.nextLine();
         while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
-               !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
-
+        !lineOfDesc.equals(Dungeon.TOP_LEVEL_DELIM)) {
             if (lineOfDesc.startsWith(CONTENTS_STARTER)) {
                 String itemsList = lineOfDesc.substring(CONTENTS_STARTER.length());
                 String[] itemNames = itemsList.split(",");
@@ -69,12 +68,22 @@ public class Room {
                             "No such item '" + itemName + "'");
                     }
                 }
+            }
+            else if(lineOfDesc.startsWith(NPCLINE)){
+                String npcv = lineOfDesc.substring(NPCLINE.length()); 
+                System.out.println(npcv);
+                    try {
+                        //npc = GameState.instance().getDungeon().getNPC(npcv);
+                        npc = d.getNPC(npcv);
+                    } catch (NPC.NoNPCException e) { 
+                        throw new Dungeon.IllegalDungeonFormatException(
+                            "No such NPC '" + npcv + "'");                    
+                }
             } else {
                 desc += lineOfDesc + "\n";
             }
             lineOfDesc = s.nextLine();
         }
-
         // throw away delimiter
         if (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM)) {
             throw new Dungeon.IllegalDungeonFormatException("No '" +
@@ -148,6 +157,7 @@ public class Room {
             description += "\nThere is a " + item.getPrimaryName() + " here.";
         }
         if (contents.size() > 0) { description += "\n"; }
+        if(npc != null){description += "\n" + npc.getNPCname();}
         if (!beenHere) {
             for (Exit exit : exits) {
                 description += "\n" + exit.describe();
@@ -177,26 +187,17 @@ public class Room {
     void remove(Item item) {
         contents.remove(item);
     }
-
-     /**
-     * adds the specfied NPC to the room
-     * 
-     * @param NPC being added to the room
-     */
-    void addNPC(NPC npc){
-        npcs.add(npc);
-    }
-    
+     NPC getNPC(){ return npc; }
     /**
      * removes the specifed NPC from the room
      * 
      * @param NPC being removed from the the room
      */
     void removeNPC(NPC npc){
-        npcs.remove(npc);
+        npc = null;
     }
  
-    String getAllNPC(){
+   /*String getAllNPC(){
         for (NPC npc : npcs){
             String name = npc.getNPCname();
             System.out.println(name);
@@ -218,7 +219,7 @@ public class Room {
        }
        return null;
         
-     }
+     }*/
     Item getItemNamed(String name) throws Item.NoItemException {
         for (Item item : contents) {
             if (item.goesBy(name)) {
