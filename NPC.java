@@ -99,6 +99,8 @@ public class NPC
     String getAttack(){
         return options.get("attack");
     }
+    
+    
     /**
      * gets name of NPC
      * 

@@ -87,18 +87,6 @@ public class Dungeon {
                 add(new Item(s));
             }
         } catch (Item.NoItemException e) {  /* end of items */ }
-	    
-	      if (!s.nextLine().equals(NPC_MARKER)) {
-            throw new IllegalDungeonFormatException("No '" +
-                NPC_MARKER + "' line where expected.");
-        }
-        
-        try {
-            // Instantiate NPCs.
-            while (true) {
-                add(new NPC(s));
-            }
-        } catch (NPC.NoNPCException e) {  /* end of NPCs*/ }
 
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
@@ -190,7 +178,7 @@ public class Dungeon {
 	    * 
 	    * @param  npc  the npc object being added to the room
 	    */
-   	public void add(NPC npc){NPCs.put(npc.getNPCname(),npc);}
+   	public void add(NPC npc){}
  
     public Room getRoom(String roomTitle) {
         return rooms.get(roomTitle);
@@ -205,12 +193,7 @@ public class Dungeon {
     	* 
     	*@param  name  of the NPC that is being retrieved
     	*/
-   	public NPC getNPC(String name)throws NPC.NoNPCException{
-        if (NPCs.get(name) == null) {
-            throw new NPC.NoNPCException();
-        }
-        return NPCs.get(name);
-    }
+   	//public NPC getNPC(String name){}  this method will be implemented in the future
 
     /**
      * Get the Item object whose primary name is passed. This has nothing to

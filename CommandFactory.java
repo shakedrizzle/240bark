@@ -36,6 +36,22 @@ public class CommandFactory {
         if (verb.equals("drop")) {
             return new DropCommand(noun);
         }
+        if (verb.equals("punch") || verb.equals("Punch")) {
+            if (noun.equals("")){
+                System.out.println("You must pick a target to attack.");
+                System.out.println("The NPCs in this room are: "+GameState.instance().getAdventurersCurrentRoom().getAllNPC());
+                return new UnknownCommand(command);
+            }      
+            return new CombatCommand(50, noun);
+        }
+        if (verb.equals("kick") || verb.equals("Kick")) {
+            if (noun.equals("")){
+                System.out.println("You must pick a target to attack.");
+                System.out.println("The NPCs in this room are: "+GameState.instance().getAdventurersCurrentRoom().getAllNPC());
+                return new UnknownCommand(command);
+            }      
+            return new CombatCommand(100, noun);
+        }
         if (verb.equals("i") || verb.equals("inventory")) {
             return new InventoryCommand();
         }

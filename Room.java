@@ -196,6 +196,29 @@ public class Room {
         npcs.remove(npc);
     }
  
+    String getAllNPC(){
+        for (NPC npc : npcs){
+            String name = npc.getNPCname();
+            System.out.println(name);
+            
+        }
+           return "";
+    }
+    
+    
+    
+    NPC getNPC(String name)
+    {
+       for (NPC temp : npcs){
+          if (temp.getNPCname().equals(name)) {
+              return temp;
+           
+            }
+           
+       }
+       return null;
+        
+     }
     Item getItemNamed(String name) throws Item.NoItemException {
         for (Item item : contents) {
             if (item.goesBy(name)) {
