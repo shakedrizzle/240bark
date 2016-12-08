@@ -8,16 +8,21 @@ import java.util.*;
 public class NPC
 {
     class NoNPCException extends Exception {}
-    private String NPCname;
-    private boolean friend;
-    private Hashtable <String,String> dialog;
-    private int health;
-    private int attack;
-    private int defense;
-    private boolean isAlly;
+   private String NPCname;
+    //next to NPC name
+    private String health;
+    private int hp;
+    private String attack;
+    private int atk;
+    private String defence;
+    private int def;
+    private boolean ally;
+    //under NPCname and stats
+    private String description;
+    //under description
+    private Hashtable <String, String> options;
+    //---
     private ArrayList<Item> inventory;
-    private String desc;
-    private String name;
     
     
     /**
@@ -27,18 +32,55 @@ public class NPC
      * @param  s  where the method will read the information it needs to fill & complete
      * the NPC
      */
-    NPC(int health, int attack, int defense, boolean isAlly, String desc, String name) throws NoNPCException,
-    Dungeon.IllegalDungeonFormatException 
-    {
-        this.health = health;
-        this.attack = attack;
-        this.defense = defense;
-        this.isAlly = isAlly;
-        inventory = new ArrayList<Item>();
-        this.desc = desc;
-        this.name = name;
-        
-    
+     NPC(Scanner s) throws NoNPCException,
+    Dungeon.IllegalDungeonFormatException {
+        options = new Hashtable<String, String>();
+        String alli;
+        String opts;
+        String NPCstats = s.nextLine();
+        String stats[] = NPCstats.split(" ");
+        NPCname = stats[0];
+        if (NPCname.equals(Dungeon.TOP_LEVEL_DELIM)) {
+            throw new NoNPCException();
+        }
+        health  = stats[1];
+        attack  = stats[2];
+        defence = stats[3];
+        alli    = stats[4];
+        this.NPCname = NPCname;
+
+        if(alli.equals("true")){ally = true;}
+        else{ally = false;}
+        int hp = Integer.valueOf(health);
+        int atk = Integer.valueOf(attack);
+        int def = Integer.valueOf(defence);
+        description = s.nextLine();
+        String decr="";
+        while(!description.contains(":")){
+            decr += description+"\n";
+            description = s.nextLine();
+        }
+        description=decr;
+        //getting options
+        opts = s.nextLine();
+        while (!opts.equals(Dungeon.SECOND_LEVEL_DELIM)) {
+            if (opts.equals(Dungeon.TOP_LEVEL_DELIM)) {
+                throw new Dungeon.IllegalDungeonFormatException("No '" +
+                    Dungeon.SECOND_LEVEL_DELIM + "' after option.");
+            }
+            String[] optionParts = opts.split(":");
+            String option = optionParts[0];
+            if (option.endsWith("]")){
+                int lastBrac = option.indexOf("[");
+                optionParts[0] = option.substring(0,lastBrac);
+                String parseWord = option.substring(0,lastBrac);
+                option = option.substring(lastBrac+1,option.indexOf("]"));
+                options.put(parseWord,option);
+            }
+            options.put(optionParts[0],optionParts[1]);
+
+            opts = s.nextLine();
+        }
     }
     
     /**
@@ -48,14 +90,25 @@ public class NPC
      * @return  true  if the NPC does go by "name" else, it will return false
      */
     boolean goesBy(String name){return this.NPCname.equals(name);}
-    
+    String getTalk(){//in progress
+        return options.get("talkto");
+    }
+    String getPet(){
+        return options.get("pet");
+    }
+    String getAttack(){
+        return options.get("attack");
+    }
     /**
      * gets name of NPC
      * 
      * @return  String  of the NPC's name
      */
-    String getName(){return NPCname;}
- 
+    String getNPCname(){return NPCname;}
+    int getHP(){return this.hp;}
+
+    String getNPCStats(){return(this.getNPCname() + ": "+ this.hp + this.atk + this.def);}
+    String getOptions(String borks){return options.get(borks);}
     /**
      * gets the dialog of the NPC from the hashtable
      * 
@@ -63,36 +116,37 @@ public class NPC
      * the values of an NPC's borks is read from a file (and "put" in the hashtable)
      * @return  String  of the borks our NPC will give, in other words, the NPC's dialog
      */
-    public String getDialog(String borks){return dialog.get(borks);}
-    
+    /**public String getDialog(String borks){return dialog.get(borks);}
+    the way dialog was going to work (this implementation) is too complicated to finish in time
+    so I simplified it
     public void setDialog(String desc){
         int temp = desc.indexOf(":");
         String action = desc.substring(0,temp);
         String phrase = desc.substring(temp+1);
-        dialog.put(action, phrase);
+        dialog.put(action, phrase);**/
         
-    }
+    
     
     public String takeHit(int damage){
-        if (damage > defense){
-            this.health = this.health - (damage - defense);
-            return this.name+" took damage. Their health is now "+this.health+".\n";
+        if (damage > def){
+            this.hp = this.hp - (damage - def);
+            return this.NPCname+" took damage. Their health is now "+this.hp+".\n";
         }
         else 
-            this.health = this.health - (damage / 2);
-            return this.name+"'s defense was so strong they took half damage. Their health is now "+this.health+".\n";
+            this.hp = this.hp - (damage / 2);
+            return this.NPCname+"'s defense was so strong they took half damage. Their health is now "+this.health+".\n";
                     
     }
     
     public String die(){
-        this.health = 0;
-        return this.name+" has died\n";
+        this.hp = 0;
+        return this.NPCname+" has died\n";
     }
     
     public String dropInventory(){
         for (Item item : inventory) {
             String name = item.toString();
-            System.out.println(this.name+" has dropped "+item.goesBy(name)+"\n");
+            System.out.println(this.NPCname+" has dropped "+item.goesBy(name)+"\n");
             removeFromInventory(item);      
         }
         return "";
