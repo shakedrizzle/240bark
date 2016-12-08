@@ -67,6 +67,9 @@ public class CommandFactory {
         if(verb.equals("h") || verb.equals("health")){
             return new HealthCommand();
         }
+        if (verb.equals("talkTo") || verb.equals("pet") || verb.equals("attack")){
+            return new NPCspecificOptions(verb);
+        }
         return new UnknownCommand(command);
     }
 }
