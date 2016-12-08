@@ -33,7 +33,7 @@ public class GameState {
     private ArrayList<String> NPCs;
     private Room adventurersCurrentRoom;
     private boolean hasHunger;
-    private boolean canTele = true;
+    private boolean canTele;
     private int health = 100;
     private int score;
  
@@ -126,9 +126,7 @@ public class GameState {
 
     void addToInventory(Item item) /* throws TooHeavyException */ {
         inventory.add(item);
-    /* for future
-    if (item.hasTele() ==true){
-            canTele = true;}  */
+    if (item.hasTele() ==true){canTele = true;} 
     }
 
     void removeFromInventory(Item item) {
@@ -176,7 +174,6 @@ public class GameState {
         return dungeon;
     }
  
-    /*again for our future teleport mechanic
     boolean setTele(){
         if(this.instance()== null){
             canTele = false;
@@ -185,7 +182,7 @@ public class GameState {
             canTele = canTele;
         }
         return canTele;
-    } */
+    } 
 
     boolean getTele(){
         return canTele;
