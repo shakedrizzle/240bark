@@ -30,10 +30,8 @@ public class Item {
         // Read item weight.
         weight = Integer.valueOf(s.nextLine());
         
-         //our file accounts for below on google drive
-         // it's in comments for Zeitz's bork file (for now)
         //read swim bool
-        /*String swim = s.nextLine();
+        String swim = s.nextLine();
         if(swim.equals("true")){
             howToSwim = true;}
         else {howToSwim = false;}
@@ -41,7 +39,7 @@ public class Item {
         String tele= s.nextLine();
         if(tele.equals("true")){
             canTele = true;}
-        else {canTele = false;} */
+        else {canTele = false;} 
          
         // Read and parse verbs lines, as long as there are more.
         String verbLine = s.nextLine();
