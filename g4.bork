@@ -1,0 +1,167 @@
+BorkedUp
+Bork v3.0
+===
+Items:
+note
+10
+False
+False
+read:You will starve.
+---
+teleScroll
+6
+flase
+true
+read:You can't decipher the scribbles used on the parchment
+---
+stick
+9
+false
+false
+throw:You throw it as far as you possibly can...it doesn't go very far..
+---
+BoneOfKnowledge
+25
+true
+false
+use:What would a dog do with this?
+chew:This is strangely enjoyable.  The bone starts to shrink, it cracks under your teeth and in your hands. As the last crack sounds you hear *swim*
+---
+kibbles
+5
+false 
+false
+eat:You feel odd doing so, but it's better than starving.
+---
+doggieCupcake
+5
+false
+false
+eat:mmmhm hits the spot.
+---
+dirtyToy
+6
+false
+false
+place:You set it down.
+---
+===
+NPCs:
+GoldenRetriever 100 100 100 true
+This dog is soaking wet, sitting comfortably in the dog bed.
+talkTo:hello fellow dweller, this dungeon is riddled with dogs and beasts similar to you. If one is afraid of those they find they must not fear, for there is always a way to avoid conflict if one is clever enough. you will earn more 
+pet:he wags his tail with joy
+attack:this will not be easy
+---
+Butch 50 10 0 false
+frothing from the mouth this dog holds a butcher's knife in its ...hands, there is a ring of keys hanging loosely from his belt. He is wearing a leather jacket that reads, “Tunnel Snakes” Puppies cry out behind him.
+talkTo:the dog snares aggressively at you but does not attack
+pet:the dog snaps at you
+attack:THE PUPPIES ARE MINE
+---
+GreaterDog 150 80 150 true
+a suit of armor monstrous in size stand tall before you.  At the peak you see a fluffy head of fur shaking with excitement. 
+talkTo:bork bark bork bruff bork...strangely you understand this: you must not fear gracious one,for even in the darkest of places can one find light, and in the most dismal situations can one find clarity and peace. bark bork: can you find it in yourself, peace, can a group of beings so diverse and strange be adopted into your life bark: as family, not as enemies?
+pet:the massive armor erupts and a small dog appears. the small dog jumps to lick your face.
+attack:what makes any of us good boys?
+---
+LesserDog 60 20 0 true
+it is clearly a dog but it’s spine must be shaped differently, it is standing on two feet
+talkTo: bark bark bork bark! The tail of the dog is shaking like a whip.
+pet:just reaching out toward the dog sends it into an excited craze, it jumps back and runs in a few circles before more calmly coming towards you and nuzzling it’s nose in your hand.
+attack:bark...
+---
+youngPup 50 15 2 false
+straight out of pupper school ready to take on the world, this pup has luscious brown and black fur.  The pup is wearing his doggermen jacket and is looking fresh.
+talkTo: bruff
+pet:youngPup looks at you questionably but gives into your ever tempting hands
+attack:. . . 
+---
+boxer 85 60 40 false
+the dog in front of you appears to be a boxing boxer, his collar reads boxer...
+talkTo:The Boss takes to kindly to strangers I tell ye.  Once Distracted he lets his guard down
+pet:he pushes your hand back with his boxing glove
+attack:give me all ye got!
+---
+lonePup 2 0 0 true
+a puppy so small, so fragile and adorable, must have been separated from the rest of the litter. You hear a soft whimpering coming from the stranded pup.
+talkTo:you talk softly to the little puppy, it picks up its head for a moment to look at you and sets its head back down to continue sulking.
+pet:you rub the head of the pup, its fur is soft and its skin loose, it’s whimpering fades, but only when you are petting it.
+attack:you can see sadness and betrayal in the small puppy’s eyes.  
+---
+Dot 50 80 30 false
+this doggo is almost completely black, when she turns around you realize that this dog is a dalmatian covered in soot, your look of puzzlement triggers her, in that she literally pulls a trigger and a wall comes crashing down behind her, the vibration of the crumbling rocks catches you off guard and you lose your balance. you can tell she is smirking, she barks proudly.  This dalmatian is a pyrotechnic she has herself rigged up with her very own doggie flame thrower. You find yourself wondering...How did she get so much napalm!
+talkTo:Bark Bark! She gets down on her front legs and lets some fire loose, she is very pleased with herself.
+pet:you pet her and your hand is blackened with soot.
+attack:she tilts her head jumps back, and lets loose the fire within, she is one hot dog
+---
+===
+Rooms:
+Start
+Contents: note
+It is damp, a slight breeze carries the smell of something fowl.
+---
+PlayTimeField
+Contents: dirtyToy
+Light is beaming in through the top of the cave, grass has grown in the areas covered by light. you can see many shallow holes in the ground
+---
+RoomOfRest
+Contents: kibbles
+NPCs: GoldenRetriever
+You see a large cushion with muddy paw prints all over it. The ground is wet behind the cushion.
+---
+LongPassageWay
+Contents: BoneOfKnowledge,teleScroll
+In front of you is a slobbery fence of somesort, it's not very tall.  behind the fence on the ground is a bone, also you can see a locked door farther down the passageway.
+---
+BigEmptyRoom
+Contents: stick,doggieCupcake
+NPCs: lonePup
+Large spacious area, doesn’t look like it’s used for anything. You can see a hole in the ground against the north wall, although, it is too small for you to enter.
+---
+WateryAbiss
+You jump off the ledge and flop into the water, you paddle awkwardly to stay afloat.  Waves are thrashing against the walls of the cave, the sounds echoing off the walls, it is rather loud. You look around you the best you can, but it is very dark, the only source of light you can see is from the room in which you came, miles above the surface, there is no way you can make it back...but there is another source of light due south.  
+---
+===
+Exits:
+Start
+n
+PlayTimeField
+---
+PlayTimeField
+s
+Start
+---
+PlayTimeField
+w
+RoomOfRest
+---
+RoomOfRest
+e
+PlayTimeField
+---
+PlayTimeField
+e
+LongPassageWay
+---
+LongPassageWay
+w
+PlayTimeField
+---
+PlayTimeField
+n
+BigEmptyRoom
+---
+BigEmptyRoom
+s
+PlayTimeField
+---
+BigEmptyRoom
+w
+WateryAbiss
+---
+WateryAbiss
+s
+RoomOfRest
+---
+===
