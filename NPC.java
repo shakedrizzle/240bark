@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class NPC
 {
-    class NoNPCException extends Exception {}
+   static class NoNPCException extends Exception {}
    private String NPCname;
     //next to NPC name
     private String health;
