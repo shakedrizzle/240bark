@@ -24,7 +24,7 @@ public class Dungeon {
     public static String ROOMS_MARKER = "Rooms:";
     public static String EXITS_MARKER = "Exits:";
     public static String ITEMS_MARKER = "Items:";
-    
+    public static String NPC_MARKER   = "NPCs:";
     // Variables relating to game state (.sav) storage.
     static String FILENAME_LEADER = "Dungeon file: ";
     static String ROOM_STATES_MARKER = "Room states:";
@@ -87,6 +87,18 @@ public class Dungeon {
                 add(new Item(s));
             }
         } catch (Item.NoItemException e) {  /* end of items */ }
+	    
+	      if (!s.nextLine().equals(NPC_MARKER)) {
+            throw new IllegalDungeonFormatException("No '" +
+                NPC_MARKER + "' line where expected.");
+        }
+        
+        try {
+            // Instantiate NPCs.
+            while (true) {
+                add(new NPC(s));
+            }
+        } catch (NPC.NoNPCException e) {  /* end of NPCs */ }
 
         // Throw away Rooms starter.
         if (!s.nextLine().equals(ROOMS_MARKER)) {
@@ -117,11 +129,6 @@ public class Dungeon {
                 Exit exit = new Exit(s, this);
             }
         } catch (Exit.NoExitException e) {  /* end of exits */ }
-
-        
-        
-        
-        
         
         s.close();
     }
@@ -131,6 +138,7 @@ public class Dungeon {
     private void init() {
         rooms = new Hashtable<String,Room>();
         items = new Hashtable<String,Item>();
+	NPCs  = new Hashtable<String,NPC>();
     }
 
     /*
@@ -178,7 +186,7 @@ public class Dungeon {
 	    * 
 	    * @param  npc  the npc object being added to the room
 	    */
-   	public void add(NPC npc){}
+   	public void add(NPC npc){NPCs.put(npc.getNPCname(),npc);}
  
     public Room getRoom(String roomTitle) {
         return rooms.get(roomTitle);
