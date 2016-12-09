@@ -4,13 +4,13 @@ Bork v3.0
 Items:
 note
 10
-False
-False
+False //for swimming bool
+False //for tele bool
 read:You will starve.
 ---
 teleScroll
 6
-flase
+false
 true
 read:You can't decipher the scribbles used on the parchment
 ---
@@ -45,6 +45,27 @@ false
 false
 place:You set it down.
 ---
+boneKey
+5
+false
+false
+inspect:a smooth slender key with rungs gnawed out of the center shaft.  Its cube like handle is smooth as glass. 
+---
+waterBiscuit
+3
+false
+false
+inspect:bread, dripping wet and falling apart.
+eat:you force yourself to swallow the soggy bread, you try your hardest not to gag.
+---
+keyRing
+5
+false
+false
+inspect:lots of keys hang from the ring, complete with cute little shapes and bite marks covering every key.
+use:you free all the puppies, they are so happy and cover you in kisses
+leave:you drop the ring of keys in front of the cages, leaving the puppies to their fate.
+---
 ===
 NPCs:
 GoldenRetriever 100 100 100 true
@@ -54,7 +75,7 @@ pet:he wags his tail with joy
 attack:this will not be easy
 ---
 Butch 50 10 0 false
-frothing from the mouth this dog holds a butcher's knife in its ...hands, there is a ring of keys hanging loosely from his belt. He is wearing a leather jacket that reads, ìTunnel Snakesî Puppies cry out behind him.
+frothing from the mouth this dog holds a butcher's knife in its ...hands, there is a ring of keys hanging loosely from his belt. He is wearing a leather jacket that reads, ‚ÄúTunnel Snakes‚Äù Puppies cry out behind him.
 talkTo:the dog snares aggressively at you but does not attack
 pet:the dog snaps at you
 attack:THE PUPPIES ARE MINE
@@ -66,14 +87,14 @@ pet:the massive armor erupts and a small dog appears. the small dog jumps to lic
 attack:what makes any of us good boys?
 ---
 LesserDog 60 20 0 true
-it is clearly a dog but itís spine must be shaped differently, it is standing on two feet
-talkTo: bark bark bork bark! The tail of the dog is shaking like a whip.
-pet:just reaching out toward the dog sends it into an excited craze, it jumps back and runs in a few circles before more calmly coming towards you and nuzzling itís nose in your hand.
+it is clearly a dog but it‚Äôs spine must be shaped differently, it is standing on two feet
+talkTo:bark bark bork bark! The tail of the dog is shaking like a whip.
+pet:just reaching out toward the dog sends it into an excited craze, it jumps back and runs in a few circles before more calmly coming towards you and nuzzling it‚Äôs nose in your hand.
 attack:bark...
 ---
 youngPup 50 15 2 false
 straight out of pupper school ready to take on the world, this pup has luscious brown and black fur.  The pup is wearing his doggermen jacket and is looking fresh.
-talkTo: bruff
+talkTo:bruff
 pet:youngPup looks at you questionably but gives into your ever tempting hands
 attack:. . . 
 ---
@@ -86,8 +107,8 @@ attack:give me all ye got!
 lonePup 2 0 0 true
 a puppy so small, so fragile and adorable, must have been separated from the rest of the litter. You hear a soft whimpering coming from the stranded pup.
 talkTo:you talk softly to the little puppy, it picks up its head for a moment to look at you and sets its head back down to continue sulking.
-pet:you rub the head of the pup, its fur is soft and its skin loose, itís whimpering fades, but only when you are petting it.
-attack:you can see sadness and betrayal in the small puppyís eyes.  
+pet:you rub the head of the pup, its fur is soft and its skin loose, it‚Äôs whimpering fades, but only when you are petting it.
+attack:you can see sadness and betrayal in the small puppy‚Äôs eyes.  
 ---
 Dot 50 80 30 false
 this doggo is almost completely black, when she turns around you realize that this dog is a dalmatian covered in soot, your look of puzzlement triggers her, in that she literally pulls a trigger and a wall comes crashing down behind her, the vibration of the crumbling rocks catches you off guard and you lose your balance. you can tell she is smirking, she barks proudly.  This dalmatian is a pyrotechnic she has herself rigged up with her very own doggie flame thrower. You find yourself wondering...How did she get so much napalm!
@@ -98,29 +119,49 @@ attack:she tilts her head jumps back, and lets loose the fire within, she is one
 ===
 Rooms:
 Start
+false
 Contents: note
 It is damp, a slight breeze carries the smell of something fowl.
 ---
 PlayTimeField
+false
 Contents: dirtyToy
 Light is beaming in through the top of the cave, grass has grown in the areas covered by light. you can see many shallow holes in the ground
 ---
 RoomOfRest
+false
 Contents: kibbles
 NPCs: GoldenRetriever
 You see a large cushion with muddy paw prints all over it. The ground is wet behind the cushion.
 ---
 LongPassageWay
+false
 Contents: BoneOfKnowledge,teleScroll
 In front of you is a slobbery fence of somesort, it's not very tall.  behind the fence on the ground is a bone, also you can see a locked door farther down the passageway.
 ---
 BigEmptyRoom
+false
 Contents: stick,doggieCupcake
 NPCs: lonePup
-Large spacious area, doesnít look like itís used for anything. You can see a hole in the ground against the north wall, although, it is too small for you to enter.
+Large spacious area, doesn‚Äôt look like it‚Äôs used for anything. You can see a hole in the ground against the north wall, although, it is too small for you to enter.
 ---
 WateryAbiss
+true
+Contents: waterBiscuit
 You jump off the ledge and flop into the water, you paddle awkwardly to stay afloat.  Waves are thrashing against the walls of the cave, the sounds echoing off the walls, it is rather loud. You look around you the best you can, but it is very dark, the only source of light you can see is from the room in which you came, miles above the surface, there is no way you can make it back...but there is another source of light due south.  
+---
+DarkPassageway
+false
+Contents: boneKey
+stray borks & barks can be heard echoing of the walls
+---
+ButchersDen
+false
+Contents: keyRing
+cages line the back wall, each cage holding two or three puppies, some not even old enough to open their eyes, others crying out.  You can tell be the bodies of the pups that they haven‚Äôt been fed or let out of those cages in a long time.
+---
+
+
 ---
 ===
 Exits:
@@ -163,5 +204,21 @@ WateryAbiss
 WateryAbiss
 s
 RoomOfRest
+---
+LongPassageWay
+e
+DarkPassageway
+---
+DarkPassageway
+e
+LongPassageWay
+---
+DarkPassageway
+n
+ButchersDen
+---
+ButchersDen
+s
+DarkPassageway
 ---
 ===
