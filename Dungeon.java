@@ -188,12 +188,17 @@ public class Dungeon {
        return roomies;
     }
  
-    /**
-	    * method gets the specific NPC in the room
-    	* 
-    	*@param  name  of the NPC that is being retrieved
-    	*/
-   	//public NPC getNPC(String name){}  this method will be implemented in the future
+   /**
+        * method gets the specific NPC in the room
+        * 
+        *@param  name  of the NPC that is being retrieved
+        */
+    public NPC getNPC(String name)throws NPC.NoNPCException{
+        if (NPCs.get(name) == null) {
+            throw new NPC.NoNPCException();
+        }
+        return NPCs.get(name);
+    }
 
     /**
      * Get the Item object whose primary name is passed. This has nothing to
