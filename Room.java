@@ -51,6 +51,9 @@ public class Room {
         if (title.equals(Dungeon.TOP_LEVEL_DELIM)) {
             throw new NoRoomException();
         }
+        String water = s.nextLine();
+        if(water.equals("true")){hasWater = true;}
+        else {hasWater = false;}
         
         String lineOfDesc = s.nextLine();
         while (!lineOfDesc.equals(Dungeon.SECOND_LEVEL_DELIM) &&
@@ -253,4 +256,6 @@ public class Room {
      * @return true or false if final boss is in room
      */
     boolean hasFinalBoss(){return false;}
+    boolean getHasWater(){return hasWater;}
 }
+  
