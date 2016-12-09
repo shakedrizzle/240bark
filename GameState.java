@@ -34,6 +34,7 @@ public class GameState {
     private Room adventurersCurrentRoom;
     private boolean hasHunger;
     private boolean canTele;
+    private boolean canSwim;
     private int health = 100;
     private int score;
  
@@ -127,6 +128,7 @@ public class GameState {
     void addToInventory(Item item) /* throws TooHeavyException */ {
         inventory.add(item);
     if (item.hasTele() ==true){canTele = true;} 
+    if (item.hasSwimObj()){canSwim = true;}
     }
 
     void removeFromInventory(Item item) {
@@ -168,6 +170,9 @@ public class GameState {
 
     void setAdventurersCurrentRoom(Room room) {
         adventurersCurrentRoom = room;
+      if(room.getHasWater() && canSwim == false){
+            setHealth(0);        
+        }
     }
 
     Dungeon getDungeon() {
@@ -184,10 +189,22 @@ public class GameState {
         return canTele;
     } 
 
+   boolean setSwim(){
+        if(this.instance()== null){
+            canSwim = false;
+        }
+        else{
+            canSwim = canSwim;
+        }
+        return canSwim;
+    } 
+ 
     boolean getTele(){
         return canTele;
     } 
- 
+    boolean getSwim(){
+        return canSwim;
+    } 
     /**
      * Gets the current hunger points of adventurer
      * 
@@ -208,6 +225,8 @@ public class GameState {
     
     void setHealth(int num){
         health = num;
+      // if(health == 0){}trying to get events to work
+      //the statement should sent a msg to EventFactory, triggering DieEvent
     }
     
     void fixHealth(int num){
