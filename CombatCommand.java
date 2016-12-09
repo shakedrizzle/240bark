@@ -28,7 +28,7 @@ public class CombatCommand extends Command{
     String execute()
     {
         NPC target;
-        target = GameState.instance().getAdventurersCurrentRoom().getNPC(this.target);
+        target = GameState.instance().getAdventurersCurrentRoom().getNPC();
         if (target == null)
             return "There is no"+this.target+" here\n";  
         String fight = target.takeHit(this.attack);
