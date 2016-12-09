@@ -63,20 +63,15 @@ public class NPC
         description=decr;
         //getting options
         opts = s.nextLine();
+        String[] optionParts;
+        String option;
         while (!opts.equals(Dungeon.SECOND_LEVEL_DELIM)) {
             if (opts.equals(Dungeon.TOP_LEVEL_DELIM)) {
                 throw new Dungeon.IllegalDungeonFormatException("No '" +
                     Dungeon.SECOND_LEVEL_DELIM + "' after option.");
             }
-            String[] optionParts = opts.split(":");
-            String option = optionParts[0];
-            if (option.endsWith("]")){
-                int lastBrac = option.indexOf("[");
-                optionParts[0] = option.substring(0,lastBrac);
-                String parseWord = option.substring(0,lastBrac);
-                option = option.substring(lastBrac+1,option.indexOf("]"));
-                options.put(parseWord,option);
-            }
+            optionParts = opts.split(":");
+            option = optionParts[0];
             options.put(optionParts[0],optionParts[1]);
 
             opts = s.nextLine();
