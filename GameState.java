@@ -225,12 +225,12 @@ public class GameState {
     
     void setHealth(int num){
         health = num;
-      // if(health == 0){}trying to get events to work
-      //the statement should sent a msg to EventFactory, triggering DieEvent
+      if(health == 0){this.lost();}
     }
     
     void fixHealth(int num){
         health=health-num;
+      if(health == 0){this.lost();}
     }
     void addScore(int num){
         score += num;
@@ -238,6 +238,23 @@ public class GameState {
     int getScore(){
         System.out.println("Current Score: " + score);
         return score;
+    }
+    void lost(){//if no one handles events
+        System.out.println("Bruff:you have died, you have barked your last bark.");
+        System.exit(50);
+    }
+
+    void win(){//if no one handles events
+     System.out.println("You find yourself victorious.  you have the sudden urge to howl");
+     System.out.println("you give into your instincts and howl, all of a sudden you feel it");
+     System.out.println("your bones cracking and changing under your skin, you fall to the ground");
+     System.out.println("you try to stand, but you realize you can no longer stand on two feet");
+     System.out.println("you look around your vision is blurred, everything that you knew has changed");
+     System.out.println("everything, looks, smells, tastes, and now even feels different.");
+     System.out.println("your eyes start to focus as you look at your hands in disbelief");
+     System.out.println("...they are not hands ... they are paws");
+     this.getScore();
+     System.exit(56);
     }
 
 }
