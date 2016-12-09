@@ -9,10 +9,7 @@ class UnknownCommand extends Command {
         this.bogusCommand = bogusCommand;
     }
 
-    String execute() {
-        if 
-        
-        
+    String execute(){
         return "I'm not sure what you mean by \"" + bogusCommand + "\".\n";
     }
 }
